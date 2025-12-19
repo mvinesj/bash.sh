@@ -16,7 +16,7 @@
  ## How to make your script executable
  - chmod +X [insert script name]
 
-# Projects
+# Projects ( credits to paid subscripton to labex.io for project ideas )
 (1) Configuring SSH Certificates for Secure Login
 
 (2) Linux System Monitor
