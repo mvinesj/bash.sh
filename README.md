@@ -17,4 +17,4 @@
  - chmod +X [insert script name]
 
 # Projects
-- Configuring SSH Certificates for Secure Login
+(1) Configuring SSH Certificates for Secure Login
