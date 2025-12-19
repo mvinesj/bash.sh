@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+echo "=== SELinux Standards Check ==="
+echo
+
+# Check if SELinux is installed
+if ! command -v sestatus &>/dev/null; then
+  echo "[FAIL] SELinux not installed"
+  exit 1
+else
+  echo "[PASS] SELinux installed"
+fi
+
+# Current SELinux status
+SEL_STATUS=$(getenforce)
+
+echo "Current Mode: $SEL_STATUS"
+
+if [[ "$SEL_STATUS" == "Enforcing" ]]; then
+  echo "[PASS] SELinux is enforcing"
+else
+  echo "[WARN] SELinux is NOT enforcing"
+fi
+
+# Check config file
+CFG="/etc/selinux/config"
+
+if [[ -f $CFG ]]; then
+  CONFIG_MODE=$(grep -E "^SELINUX=" "$CFG" | cut -d= -f2)
+  POLICY=$(grep -E "^SELINUXTYPE=" "$CFG" | cut -d= -f2)
+
+  echo
+  echo "Config File Settings:"
+  echo "SELINUX=$CONFIG_MODE"
+  echo "SELINUXTYPE=$POLICY"
+
+  if [[ "$CONFIG_MODE" == "enforcing" ]]; then
+    echo "[PASS] Config set to enforcing"
+  else
+    echo "[WARN] Config NOT enforcing"
+  fi
+else
+  echo "[FAIL] /etc/selinux/config missing"
+fi
+
+# Check loaded policy
+echo
+echo "Loaded Policy:"
+sestatus | grep "Loaded policy name"
+
+# Check for recent AVC denials
+echo
+echo "Recent AVC denials (last 10):"
+ausearch -m AVC -ts recent 2>/dev/null | tail -10 || echo "No AVCs found"
+
+echo
+echo "=== SELinux Check Complete ==="
