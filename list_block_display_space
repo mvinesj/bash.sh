@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+echo "This script will list all block devices and display free space in  a readable format"
+echo "#####################################################"
+echo "LIST BLOCK DEVICES"
+echo "#####################################################"
+lsblk
+echo "#####################################################"
+echo "FILESYSTEM FREE SPACE STATUS"
+echo "#####################################################"
+df -h
