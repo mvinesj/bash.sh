@@ -1,2 +1,8 @@
 # bash.sh
-Custom Bash Scripts
+# Custom Bash Scripts for Automation
+- A collection of custom automation and administrative scripts used for systems administration, cloud, and infrastructure tasks
+
+### What these scripts are designed to do
+- Reduce repetiive work
+- Standaradize operational tasks
+- Improve reliability and consistency
