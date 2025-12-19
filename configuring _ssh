@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#######################################################
+create an .ssh directory in the specific users home dir
+#######################################################
+
+mkdir -p ~/.ssh
+ssh-keygen -t rsa -b 4096 -C "insert_user_here"
+
+  
+
+#######################################################
+add the new public key to the auth_keys file
+#######################################################
+  
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized _keys
+chmod600 ~/.ssh/authorized keys
+
+
+
+#######################################################
+restart SSH and Test SSH
+#######################################################
+
+sudo servicve ssh restart
+ssh"inser_user_here"
