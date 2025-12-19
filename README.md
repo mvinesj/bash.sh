@@ -6,3 +6,11 @@
 - Reduce repetiive work
 - Standaradize operational tasks
 - Improve reliability and consistency
+
+### What is #!
+- Tells the OS which interpreter should run a script
+- EX: #! /usr/bin/bash
+   - you will be running your script using bash
+ 
+
+ 
