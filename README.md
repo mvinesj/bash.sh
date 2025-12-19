@@ -13,4 +13,5 @@
    - you will be running your script using bash
  
 
- 
+ ## How to make your script executable
+ - chmod +X [insert script name]
