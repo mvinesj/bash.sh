@@ -15,3 +15,6 @@
 
  ## How to make your script executable
  - chmod +X [insert script name]
+
+# Projects
+- Configuring SSH Certificates for Secure Login
