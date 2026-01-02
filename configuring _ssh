@@ -19,7 +19,9 @@ chmod600 ~/.ssh/authorized keys
 
 
 #######################################################
+
 restart SSH and Test SSH
+
 #######################################################
 
 sudo servicve ssh restart
